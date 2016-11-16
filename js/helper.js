@@ -51,6 +51,7 @@ var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 /*var HTMLschoolMinor = '<em><br>Minor: %data%</em>';*/
 /*var HTMLschoolURL = '<br><a href="https://%data%/>"%data%"</a>';*/
 
+var HTMLonlineStart = '<div class="online-entry"></div>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';

@@ -183,20 +183,26 @@ var education = {
 			
 			
 		}
-		/*console.log("Number of online classes is " + education.schools.length);
+		
+		/*$(".education-entry:last").append(HTMLonlineClasses); */
+			
+		console.log("Number of online classes is " + education.schools.length);
+		$("#education").append(HTMLonlineClasses);
+		$("#education").append(HTMLonlineStart);
 		for (k=0; k<education.onlineCourses.length; k++) {
-			$("#education").append(HTMLonlineClasses);
+			/*$(".education-entry:last").append(HTMLonlineClasses); */
+			/*$("#education").append(HTMLschoolStart); */
 			console.log("in the online loop");
 			var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[k].name);
 			var formattedOnlineTitle2 = formattedOnlineTitle.replace("#", education.onlineCourses[k].url);
 			console.log("school title " + formattedOnlineTitle2 );
-			$(".education-entry:last").append(formattedOnlineTitle2);
+			$(".online-entry").append(formattedOnlineTitle2);
 			var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[k].degree);
-			$(".education-entry:last").append(formattedOnlineSchool);
+			$(".online-entry").append(formattedOnlineSchool);
 			var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[k].dates);
-			$(".education-entry:last").append(formattedOnlineDates);
+			$(".online-entry").append(formattedOnlineDates);
 
-		} */
+		} 
 	}
 }
 
