@@ -67,7 +67,7 @@ var work = {
 		},
 		{"employer" : "Andersen Consulting",
 		"title" : "Consultant",
-		"location" : ["Denver, CO", "Seattle, WA"], 
+		"location" : ["Denver, CO", "Seattle, WA", "San Francisco, CA"], 
 		"dates" : "1994-1997",
 		"description" : ["1994-1996: Consultant at Pacific Bell, working as a developer in the Billing Area",
 		"1996-1997: Consultant commuting between Seattle and Denver for US West, analyzing their current testing processes " +
@@ -87,11 +87,22 @@ var work = {
 
 		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
 		$(".work-entry:last").append(formattedDates);
-
+		
+		
+		console.log("location length is " + work.jobs[i].location.length);
+		
+		for (j=0; j<work.jobs[i].location.length; j++) {
+			console.log("in location loop");
+			console.log("location is " + work.jobs[i].location[j]);
+			var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location[j]);
+			console.log("trying to add " + formattedLocation);
+			$(".work-entry:last").append(formattedLocation);
+		}
 
 		if (work.jobs[i].description.length > 0) {
-				for (j=0; j<work.jobs[i].description.length; j++) {
-					var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description[j]);
+				for (k=0; k<work.jobs[i].description.length; k++) {
+					console.log("description is " + work.jobs[i].description[k]);
+					var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description[k]);
 					$(".work-entry:last").append(formattedDescription);
 				}
 			}
@@ -151,10 +162,8 @@ var education = {
 	],
 	"onlineCourses" : [
 		{
-		"name" : "Udacity",
-		"location" : "San Francisco, CA",
-		"degree" : "Introduction to Programming",
-		"majors" : ["Nanodegree"],
+		"title" : "Introduction to Programming",
+		"school" : "Udacity",
 		"dates" : "2016",
 		"url" : "http://www.udacity.com/"
 		}
@@ -192,15 +201,17 @@ var education = {
 		for (k=0; k<education.onlineCourses.length; k++) {
 			/*$(".education-entry:last").append(HTMLonlineClasses); */
 			/*$("#education").append(HTMLschoolStart); */
-			console.log("in the online loop");
-			var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[k].name);
+			/*console.log("in the online loop");*/
+			var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[k].title);
 			var formattedOnlineTitle2 = formattedOnlineTitle.replace("#", education.onlineCourses[k].url);
 			console.log("school title " + formattedOnlineTitle2 );
-			$(".online-entry").append(formattedOnlineTitle2);
-			var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[k].degree);
-			$(".online-entry").append(formattedOnlineSchool);
+			$(".online-entry:last").append(formattedOnlineTitle2);
+			var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[k].school);
+			$(".online-entry:last").append(formattedOnlineSchool);
 			var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[k].dates);
-			$(".online-entry").append(formattedOnlineDates);
+			$(".online-entry:last").append(formattedOnlineDates);
+			var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[k].url);
+			$(".online-entry:last").append(formattedUrl);
 
 		} 
 	}
