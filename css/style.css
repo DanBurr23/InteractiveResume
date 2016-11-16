@@ -76,8 +76,10 @@ h5 {
   font-style: italic;
   font-size: 14px;
   color: #999;
+  /*color: black; */
   line-height: 16px;
   float: right;
+  padding:2px 1%;
 
 }
 
